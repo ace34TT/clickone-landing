@@ -15,7 +15,7 @@ export const MediaContentBlock: React.FC<
 
   return (
     <section className="py-16 md:py-24 container mx-auto px-4" id={`block-${props.id}`}>
-      
+
       {/* Title Centered Top */}
       {title && (
         <div className="mb-12 text-center w-full">
@@ -26,14 +26,14 @@ export const MediaContentBlock: React.FC<
       )}
 
       <div className={`flex flex-col gap-12 items-center ${isImageLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-        
+
         {/* Image Side */}
         <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
           {image && typeof image === 'object' && (
-            <Media 
-              resource={image} 
-              fill 
-              imgClassName="object-cover rounded-2xl shadow-xl" 
+            <Media
+              resource={image}
+              fill
+              imgClassName="object-cover rounded-2xl shadow-xl"
             />
           )}
         </div>

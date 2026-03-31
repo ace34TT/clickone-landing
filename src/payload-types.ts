@@ -257,6 +257,53 @@ export interface Page {
         blockName?: string | null;
         blockType: 'mediaContent';
       }
+    | {
+        title: string;
+        subtitle?: string | null;
+        cards?:
+          | {
+              cardTitle: string;
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              id?: string | null;
+            }[]
+          | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'featureGrid';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1105,6 +1152,31 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               content?: T;
               image?: T;
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        featureGrid?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              cards?:
+                | T
+                | {
+                    cardTitle?: T;
+                    description?: T;
+                    id?: T;
+                  };
               link?:
                 | T
                 | {
