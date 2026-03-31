@@ -318,6 +318,20 @@ export interface Page {
         blockName?: string | null;
         blockType: 'iconCards';
       }
+    | {
+        title: string;
+        processSteps?:
+          | {
+              icon: number | Media;
+              stepTitle: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'steps';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1213,6 +1227,21 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     icon?: T;
                     cardTitle?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        steps?:
+          | T
+          | {
+              title?: T;
+              processSteps?:
+                | T
+                | {
+                    icon?: T;
+                    stepTitle?: T;
                     description?: T;
                     id?: T;
                   };

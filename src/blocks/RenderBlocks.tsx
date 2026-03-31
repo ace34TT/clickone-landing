@@ -10,6 +10,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { MediaContentBlock } from '@/blocks/MediaContent/Component'
 import { FeatureGridBlock } from '@/blocks/FeatureGrid/Component'
 import { IconCardsBlock } from '@/blocks/IconCards/Component'
+import { StepsBlock } from '@/blocks/Steps/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -20,6 +21,7 @@ const blockComponents = {
   mediaContent: MediaContentBlock,
   featureGrid: FeatureGridBlock,
   iconCards: IconCardsBlock,
+  steps: StepsBlock,
 }
 
 export const RenderBlocks: React.FC<{
