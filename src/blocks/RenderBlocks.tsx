@@ -12,6 +12,7 @@ import { FeatureGridBlock } from '@/blocks/FeatureGrid/Component'
 import { IconCardsBlock } from '@/blocks/IconCards/Component'
 import { StepsBlock } from '@/blocks/Steps/Component'
 import { PortfolioShowcaseBlock } from '@/blocks/PortfolioShowcase/Component'
+import { PricingTableBlock } from '@/blocks/PricingTable/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -24,6 +25,7 @@ const blockComponents = {
   iconCards: IconCardsBlock,
   steps: StepsBlock,
   portfolioShowcase: PortfolioShowcaseBlock,
+  pricingTable: PricingTableBlock,
 }
 
 export const RenderBlocks: React.FC<{

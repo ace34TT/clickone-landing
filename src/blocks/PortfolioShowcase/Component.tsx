@@ -63,8 +63,8 @@ export const PortfolioShowcaseBlock: React.FC<
                   </div>
                   
                   {/* Transparent Clickable Overlay utilizing the integrated Payload CMSLink */}
-                  {project.projectLink && (
-                    <CMSLink {...project.projectLink} className="absolute inset-0 z-20 w-full h-full opacity-0">
+                  {project.lnk && (
+                    <CMSLink {...project.lnk} className="absolute inset-0 z-20 w-full h-full opacity-0">
                       <span className="sr-only">View {project.projectName}</span>
                     </CMSLink>
                   )}

@@ -364,6 +364,33 @@ export interface Page {
         blockName?: string | null;
         blockType: 'portfolioShowcase';
       }
+    | {
+        title: string;
+        subtitle?: string | null;
+        plans?:
+          | {
+              planName: string;
+              price: string;
+              features?:
+                | {
+                    feature?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        optionsTitle?: string | null;
+        extraOptions?:
+          | {
+              optionName?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'pricingTable';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1299,6 +1326,34 @@ export interface PagesSelect<T extends boolean = true> {
                           label?: T;
                           appearance?: T;
                         };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        pricingTable?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              plans?:
+                | T
+                | {
+                    planName?: T;
+                    price?: T;
+                    features?:
+                      | T
+                      | {
+                          feature?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              optionsTitle?: T;
+              extraOptions?:
+                | T
+                | {
+                    optionName?: T;
                     id?: T;
                   };
               id?: T;
