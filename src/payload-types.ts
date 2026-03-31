@@ -332,6 +332,38 @@ export interface Page {
         blockName?: string | null;
         blockType: 'steps';
       }
+    | {
+        title: string;
+        projects?:
+          | {
+              projectName: string;
+              image: number | Media;
+              lnk: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: number | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'posts';
+                      value: number | Post;
+                    } | null);
+                url?: string | null;
+                label: string;
+                /**
+                 * Choose how the link should be rendered.
+                 */
+                appearance?: ('default' | 'outline') | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'portfolioShowcase';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1243,6 +1275,30 @@ export interface PagesSelect<T extends boolean = true> {
                     icon?: T;
                     stepTitle?: T;
                     description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        portfolioShowcase?:
+          | T
+          | {
+              title?: T;
+              projects?:
+                | T
+                | {
+                    projectName?: T;
+                    image?: T;
+                    lnk?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                          appearance?: T;
+                        };
                     id?: T;
                   };
               id?: T;
