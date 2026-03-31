@@ -41,6 +41,9 @@ export const hero: Field = {
     {
       name: 'richText',
       type: 'richText',
+      admin: {
+        condition: (_, { type } = {}) => type !== 'highImpact',
+      },
       editor: lexicalEditor({
         features: ({ rootFeatures }) => {
           return [
@@ -52,6 +55,40 @@ export const hero: Field = {
         },
       }),
       label: false,
+    },
+    {
+      name: 'highImpactProps',
+      type: 'group',
+      admin: {
+        condition: (_, { type } = {}) => type === 'highImpact',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'subtitle',
+          type: 'text',
+        },
+        {
+          name: 'presentationName',
+          type: 'text',
+        },
+        {
+          name: 'presentationPhone',
+          type: 'text',
+        },
+        {
+          name: 'emailAddress',
+          type: 'text',
+        },
+        {
+          name: 'ctaText',
+          type: 'text',
+        },
+      ],
     },
     linkGroup({
       overrides: {

@@ -175,6 +175,14 @@ export interface Page {
       };
       [k: string]: unknown;
     } | null;
+    highImpactProps?: {
+      title: string;
+      subtitle?: string | null;
+      presentationName?: string | null;
+      presentationPhone?: string | null;
+      emailAddress?: string | null;
+      ctaText?: string | null;
+    };
     links?:
       | {
           link: {
@@ -1064,6 +1072,16 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         type?: T;
         richText?: T;
+        highImpactProps?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              presentationName?: T;
+              presentationPhone?: T;
+              emailAddress?: T;
+              ctaText?: T;
+            };
         links?:
           | T
           | {
