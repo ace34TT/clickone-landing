@@ -304,6 +304,20 @@ export interface Page {
         blockName?: string | null;
         blockType: 'featureGrid';
       }
+    | {
+        title: string;
+        cards?:
+          | {
+              icon: number | Media;
+              cardTitle: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'iconCards';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1186,6 +1200,21 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                     label?: T;
                     appearance?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        iconCards?:
+          | T
+          | {
+              title?: T;
+              cards?:
+                | T
+                | {
+                    icon?: T;
+                    cardTitle?: T;
+                    description?: T;
+                    id?: T;
                   };
               id?: T;
               blockName?: T;
