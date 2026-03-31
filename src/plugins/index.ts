@@ -95,6 +95,6 @@ export const plugins: Plugin[] = [
     collections: {
       media: true,
     },
-    token: process.env.BLOB_READ_WRITE_TOKEN,
+    token: process.env.clickone_READ_WRITE_TOKEN,
   }),
 ]
