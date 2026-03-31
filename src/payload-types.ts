@@ -391,6 +391,25 @@ export interface Page {
         blockName?: string | null;
         blockType: 'pricingTable';
       }
+    | {
+        title: string;
+        contentItems?:
+          | {
+              itemTitle: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        imageArray?:
+          | {
+              graphicIcon: number | Media;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'detailedGrid';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1354,6 +1373,26 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     optionName?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        detailedGrid?:
+          | T
+          | {
+              title?: T;
+              contentItems?:
+                | T
+                | {
+                    itemTitle?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              imageArray?:
+                | T
+                | {
+                    graphicIcon?: T;
                     id?: T;
                   };
               id?: T;
