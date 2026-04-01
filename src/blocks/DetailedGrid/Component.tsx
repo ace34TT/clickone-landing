@@ -30,7 +30,7 @@ export const DetailedGridBlock: React.FC<
   )
 
   return (
-    <BlockContainer >
+    <BlockContainer id={'stat_et_audit'}>
       <div className="container mx-auto px-4 md:px-8 max-w-6xl">
         <div className="text-center mb-20 lg:mb-28">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-wider drop-shadow-sm">
@@ -39,7 +39,6 @@ export const DetailedGridBlock: React.FC<
         </div>
 
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
-
           {/* Left Column Data */}
           <div className="flex-1 flex flex-col gap-12 lg:gap-20 relative">
             {leftColItems.map((item: any, idx: number) => (
@@ -57,7 +56,10 @@ export const DetailedGridBlock: React.FC<
             {imageArray && imageArray.length > 0 && (
               <div className="flex items-center justify-evenly lg:justify-between gap-4 mt-auto pt-8">
                 {imageArray.map((img: any, idx: number) => (
-                  <div key={idx} className="relative w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 shrink-0 transition-transform hover:scale-105 duration-300">
+                  <div
+                    key={idx}
+                    className="relative w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 shrink-0 transition-transform hover:scale-105 duration-300"
+                  >
                     {img.graphicIcon && typeof img.graphicIcon === 'object' && (
                       <Media
                         resource={img.graphicIcon}

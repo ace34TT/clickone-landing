@@ -11,7 +11,7 @@ export const PricingTableBlock: React.FC<
   const { title, subtitle, plans, optionsTitle, extraOptions } = props
 
   return (
-    <BlockContainer className={"vertical-gradient-bg"} styles={{isFullWidth: true}}>
+    <BlockContainer id={"tarifs"} className={"vertical-gradient-bg"} styles={{isFullWidth: true}}>
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-wide mb-6">
             {title}

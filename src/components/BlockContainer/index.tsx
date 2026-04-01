@@ -5,6 +5,7 @@ import type { Media } from '@/payload-types'
 type Props = {
   children: React.ReactNode
   className?: string
+  id?: string
   styles?: {
     backgroundImage?: (number | null) | Media | string
     isFullWidth?: boolean | null
@@ -13,7 +14,7 @@ type Props = {
 }
 
 const BlockContainer = (props: Props) => {
-  const { children, className, styles = {} } = props
+  const { children, className, styles, id } = props
   const isFullWidth = styles?.isFullWidth ?? false
   const isWithPaddingTop = styles?.paddingTop !== false
 
@@ -29,15 +30,16 @@ const BlockContainer = (props: Props) => {
 
   return (
     <section
+      id={id}
       className={cn(
         isWithPaddingTop ? 'py-20 md:py-24' : 'pb-20 md:pb-24',
-        isFullWidth ? "" : 'container',
+        isFullWidth ? '' : 'container',
         backgroundImage && 'bg-cover bg-center bg-no-repeat',
         className,
       )}
       style={backgroundImage ? { backgroundImage: `url("${backgroundImage}")` } : undefined}
     >
-      <div className={cn(isFullWidth && "container mx-auto")}>{children}</div>
+      <div className={cn(isFullWidth && 'container mx-auto')}>{children}</div>
     </section>
   )
 }

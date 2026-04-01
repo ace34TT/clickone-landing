@@ -15,7 +15,7 @@ export const MediaContentBlock: React.FC<
   const isImageLeft = layout === 'imageLeft'
 
   return (
-    <BlockContainer className={"reverse-gradient-bg"} styles={{isFullWidth : true}}>
+    <BlockContainer id={"a-propos"} className={"reverse-gradient-bg"} styles={{isFullWidth : true}}>
       {/* Title Centered Top */}
       {title && (
         <div className="mb-12 text-center w-full">

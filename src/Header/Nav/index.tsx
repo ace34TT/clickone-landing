@@ -27,18 +27,48 @@ export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
         // Next.js Payload adapter defaults 'home' slug to root
         if (href === '/home') href = '/'
 
-        const isActive = pathname === href || (href !== '/' && pathname.startsWith(href))
+        const isHash = href.startsWith('#') || href.startsWith('/#')
+        const isActive = pathname === href || (!isHash && href !== '/' && pathname.startsWith(href))
+
+        const linkClasses = ` capitalize transition-all duration-300 text-[15px] lg:text-[16px] tracking-wide hover:no-underline ${
+          isActive
+            ? 'text-[#ffff] font-bold drop-shadow-md'
+            : 'text-[#e2e8f0] hover:text-white font-medium hover:-translate-y-0.5'
+        }`
+
+        if (isHash) {
+          const hashId = href.substring(href.indexOf('#'))
+          const targetHref = pathname === '/' ? hashId : `/${hashId}`
+          
+          return (
+            <a
+              key={i}
+              href={targetHref}
+              onClick={(e) => {
+                if (pathname === '/') {
+                  e.preventDefault()
+                  const id = hashId.replace('#', '')
+                  const elem = document.getElementById(id)
+                  if (elem) {
+                    elem.scrollIntoView({ behavior: 'smooth' })
+                    // Optional: update URL hash without scrolling jump
+                    window.history.pushState(null, '', hashId)
+                  }
+                }
+              }}
+              className={linkClasses}
+            >
+              {link.label}
+            </a>
+          )
+        }
 
         return (
           <CMSLink
             key={i}
             {...link}
             appearance="link"
-            className={`transition-all duration-300 text-[15px] lg:text-[16px] tracking-wide hover:no-underline ${
-              isActive
-                ? 'text-[#ffff] font-bold drop-shadow-md'
-                : 'text-[#e2e8f0] hover:text-white font-medium hover:-translate-y-0.5'
-            }`}
+            className={linkClasses}
           />
         )
       })}

@@ -10,8 +10,7 @@ export const PortfolioShowcaseBlock: React.FC<
   const { title, projects } = props
 
   return (
-    <BlockContainer>
-
+    <BlockContainer id={"realisation"}>
       {/* Decorative Dotted Pattern (Left Edge) */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-120 h-120 opacity-30 pointer-events-none">
         <div

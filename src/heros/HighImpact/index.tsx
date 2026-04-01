@@ -14,6 +14,7 @@ export const HighImpactHero: React.FC<Page['hero']> = (props) => {
 
   return (
     <div
+      id={"hero"}
       className="relative -mt-24.5 pt-56 pb-24 w-full max-w-[100vw] overflow-hidden flex items-center text-white min-h-screen gradient-bg"
     >
       <div className="container relative z-10 mx-auto px-6 md:px-8">

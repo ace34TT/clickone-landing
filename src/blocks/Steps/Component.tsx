@@ -9,7 +9,7 @@ export const StepsBlock: React.FC<
   const { title, processSteps } = props
 
   return (
-    <BlockContainer>
+    <BlockContainer id={"processus"}>
       <div className="w-full mx-auto px-4 md:px-8 overflow-hidden">
         <div className="text-center mb-24">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-wide">{title}</h2>
