@@ -11,7 +11,15 @@ const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
   let url = serverUrl + '/website-template-OG.webp'
 
   if (image && typeof image === 'object' && 'url' in image) {
-    const ogUrl = image.sizes?.og?.url
+    const ogUrl =
+      image.sizes &&
+      'og' in image.sizes &&
+      image.sizes.og &&
+      typeof image.sizes.og === 'object' &&
+      'url' in image.sizes.og &&
+      typeof (image.sizes.og as { url: string }).url === 'string'
+        ? (image.sizes.og as { url: string }).url
+        : null
 
     url = ogUrl ? serverUrl + ogUrl : serverUrl + image.url
   }
@@ -27,13 +35,17 @@ export const generateMeta = async (args: {
   const ogImage = getImageURL(doc?.meta?.image)
 
   const title = doc?.meta?.title
-    ? doc?.meta?.title + ' | Payload Website Template'
-    : 'Payload Website Template'
+    ? doc?.meta?.title + ' | Click One'
+    : 'Click One - Conception Web & Marketing Digital'
+
+  const description =
+    doc?.meta?.description ||
+    'Solutions digitales expertes : création de sites vitrine, e-commerce sur mesure, stratégie SEO et design UX/UI par Click One.'
 
   return {
-    description: doc?.meta?.description,
+    description,
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
+      description,
       images: ogImage
         ? [
             {
@@ -42,8 +54,15 @@ export const generateMeta = async (args: {
           ]
         : undefined,
       title,
-      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : '/',
+      url: Array.isArray(doc?.slug) ? doc?.slug.join('/') : `/${doc?.slug || ''}`,
     }),
     title,
+    alternates: {
+      canonical: Array.isArray(doc?.slug) ? doc?.slug.join('/') : `/${doc?.slug || ''}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   }
 }

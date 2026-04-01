@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html
       className={cn(GeistSans.variable, GeistMono.variable, 'overflow-x-hidden', 'scroll-smooth')}
-      lang="en"
+      lang="fr"
       suppressHydrationWarning
     >
       <head>
@@ -50,9 +50,32 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
+  title: {
+    default: 'Click One - Conception Web & Marketing Digital',
+    template: '%s | Click One',
+  },
+  description:
+    'Solutions digitales expertes : création de sites vitrine, e-commerce sur mesure, stratégie SEO et design UX/UI par Click One.',
+  keywords: [
+    'création site web',
+    'SEO',
+    'e-commerce',
+    'marketing digital',
+    'Click One',
+    'web design',
+    'maintenance site web',
+  ],
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
-    creator: '@payloadcms',
+    creator: 'Click One',
   },
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  publisher: 'Click-one',
 }
