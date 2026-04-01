@@ -9,7 +9,7 @@ export const IconCardsBlock: React.FC<
   const { title, cards } = props
 
   return (
-    <BlockContainer >
+    <BlockContainer  className={"gradient-bg"} styles={{ isFullWidth : true}}>
 
       {/* Decorative Dotted Pattern (Right Edge) */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-64 h-64 opacity-30 pointer-events-none">

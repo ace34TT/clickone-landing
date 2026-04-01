@@ -10,7 +10,7 @@ export const StepsBlock: React.FC<
 
   return (
     <BlockContainer>
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <div className="w-full mx-auto px-4 md:px-8">
         <div className="text-center mb-24">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-wide">{title}</h2>
         </div>
@@ -21,11 +21,11 @@ export const StepsBlock: React.FC<
               const isLast = idx === processSteps.length - 1
 
               return (
-                <div key={idx} className="relative flex flex-col items-start w-full">
+                <div key={idx} className="relative flex flex-col items-center w-full">
                   {/* Connecting Line (Only visible on desktop/tablet, hidden on last item) */}
                   {/* The line covers 100% of the column width + the 2rem (32px) gap to reach the next icon's center */}
                   {!isLast && (
-                    <div className="hidden md:block absolute top-8 left-[2rem] w-[calc(100%+2rem)] lg:w-[calc(100%+2rem)] h-[1px] lg:h-[2px] bg-gradient-to-r from-[#00e5ff] to-[#a855f7] z-0" />
+                    <div className="hidden md:block absolute top-8 left-1/2 w-[calc(100%+2rem)] lg:w-[calc(100%+2rem)] h-px lg:h-0.5 bg-linear-to-r from-[#00e5ff] to-[#a855f7] z-0" />
                   )}
 
                   {/* Icon Container with Gradient Border */}
@@ -39,12 +39,12 @@ export const StepsBlock: React.FC<
                   </div>
 
                   {/* Step Title */}
-                  <h3 className="text-lg md:text-xl font-bold text-[#00e5ff] mb-4">
+                  <h3 className="text-lg md:text-xl font-bold text-[#00e5ff] mb-4 text-center">
                     {idx + 1}. {step.stepTitle}
                   </h3>
 
                   {/* Step Description */}
-                  <p className="text-slate-300 text-sm md:text-xs lg:text-sm leading-relaxed pr-4 text-left">
+                  <p className="text-slate-300 text-sm md:text-xs lg:text-sm leading-relaxed px-4 text-center">
                     {step.description}
                   </p>
                 </div>

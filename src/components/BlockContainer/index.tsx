@@ -31,13 +31,13 @@ const BlockContainer = (props: Props) => {
     <section
       className={cn(
         isWithPaddingTop ? 'py-20 md:py-24' : 'pb-20 md:pb-24',
-        !isFullWidth && 'container',
+        isFullWidth ? "" : 'container',
         backgroundImage && 'bg-cover bg-center bg-no-repeat',
         className,
       )}
       style={backgroundImage ? { backgroundImage: `url("${backgroundImage}")` } : undefined}
     >
-      {children}
+      <div className={cn(isFullWidth && "container mx-auto")}>{children}</div>
     </section>
   )
 }
