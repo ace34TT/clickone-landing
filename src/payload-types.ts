@@ -386,6 +386,14 @@ export interface Page {
           | {
               planName: string;
               price: string;
+              /**
+               * Optional CSS color code (e.g. #3740b2)
+               */
+              backgroundColor?: string | null;
+              /**
+               * Optional icon. Replaces the default dotted triangle if provided.
+               */
+              icon?: (number | null) | Media;
               features?:
                 | {
                     feature?: string | null;
@@ -1396,6 +1404,8 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     planName?: T;
                     price?: T;
+                    backgroundColor?: T;
+                    icon?: T;
                     features?:
                       | T
                       | {

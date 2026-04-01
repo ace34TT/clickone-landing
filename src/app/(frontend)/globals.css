@@ -226,8 +226,11 @@ html[data-theme='light'] {
 .gradient-bg {
   @apply bg-linear-to-br from-[#1A1B44] to-[#0F2457]
 }
+
+.vertical-gradient-bg {
+  @apply bg-linear-to-t from-[#1A1B44] to-[#0F2457]
+}
 .reverse-gradient-bg {
   @apply bg-linear-to-br from-[#0F2457] to-[#1A1B44]
-
 }
 

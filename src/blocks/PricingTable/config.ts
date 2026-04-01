@@ -36,6 +36,21 @@ export const PricingTable: Block = {
           required: true,
         },
         {
+          name: 'backgroundColor',
+          type: 'text',
+          admin: {
+            description: 'Optional CSS color code (e.g. #3740b2)',
+          },
+        },
+        {
+          name: 'icon',
+          type: 'upload',
+          relationTo: 'media',
+          admin: {
+            description: 'Optional icon. Replaces the default dotted triangle if provided.',
+          },
+        },
+        {
           name: 'features',
           type: 'array',
           fields: [
