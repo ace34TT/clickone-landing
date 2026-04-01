@@ -253,6 +253,11 @@ export interface Page {
            */
           appearance?: ('default' | 'outline') | null;
         };
+        styles?: {
+          backgroundImage?: (number | null) | Media;
+          isFullWidth?: boolean | null;
+          paddingTop?: boolean | null;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'mediaContent';
@@ -299,6 +304,11 @@ export interface Page {
            * Choose how the link should be rendered.
            */
           appearance?: ('default' | 'outline') | null;
+        };
+        styles?: {
+          backgroundImage?: (number | null) | Media;
+          isFullWidth?: boolean | null;
+          paddingTop?: boolean | null;
         };
         id?: string | null;
         blockName?: string | null;
@@ -360,6 +370,11 @@ export interface Page {
               id?: string | null;
             }[]
           | null;
+        styles?: {
+          backgroundImage?: (number | null) | Media;
+          isFullWidth?: boolean | null;
+          paddingTop?: boolean | null;
+        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'portfolioShowcase';
@@ -1268,6 +1283,13 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     appearance?: T;
                   };
+              styles?:
+                | T
+                | {
+                    backgroundImage?: T;
+                    isFullWidth?: T;
+                    paddingTop?: T;
+                  };
               id?: T;
               blockName?: T;
             };
@@ -1292,6 +1314,13 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                     label?: T;
                     appearance?: T;
+                  };
+              styles?:
+                | T
+                | {
+                    backgroundImage?: T;
+                    isFullWidth?: T;
+                    paddingTop?: T;
                   };
               id?: T;
               blockName?: T;
@@ -1346,6 +1375,13 @@ export interface PagesSelect<T extends boolean = true> {
                           appearance?: T;
                         };
                     id?: T;
+                  };
+              styles?:
+                | T
+                | {
+                    backgroundImage?: T;
+                    isFullWidth?: T;
+                    paddingTop?: T;
                   };
               id?: T;
               blockName?: T;
@@ -1902,6 +1938,31 @@ export interface Header {
  */
 export interface Footer {
   id: number;
+  titleSubtitle?: string | null;
+  titleHighlight?: string | null;
+  titleEnd?: string | null;
+  phone?: string | null;
+  email?: string | null;
+  website?: string | null;
+  cta: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
+    url?: string | null;
+    label: string;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline') | null;
+  };
   navItems?:
     | {
         link: {
@@ -1953,6 +2014,22 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
+  titleSubtitle?: T;
+  titleHighlight?: T;
+  titleEnd?: T;
+  phone?: T;
+  email?: T;
+  website?: T;
+  cta?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+        appearance?: T;
+      };
   navItems?:
     | T
     | {

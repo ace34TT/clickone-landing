@@ -205,14 +205,14 @@
   --color-error: var(--error);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
-  }
-}
+/*@layer base {*/
+/*  * {*/
+/*    @apply border-border outline-ring/50;*/
+/*  }*/
+/*  body {*/
+/*    @apply bg-background text-foreground min-h-[100vh] flex flex-col;*/
+/*  }*/
+/*}*/
 
 html {
   opacity: 0;
@@ -222,3 +222,12 @@ html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
 }
+
+.gradient-bg {
+  @apply bg-linear-to-br from-[#1A1B44] to-[#0F2457]
+}
+.reverse-gradient-bg {
+  @apply bg-linear-to-br from-[#0F2457] to-[#1A1B44]
+
+}
+

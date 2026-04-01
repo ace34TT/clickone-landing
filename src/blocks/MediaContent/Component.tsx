@@ -3,6 +3,7 @@ import type { MediaContentBlock as MediaContentBlockProps } from '@/payload-type
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'
+import BlockContainer from '@/components/BlockContainer'
 
 export const MediaContentBlock: React.FC<
   MediaContentBlockProps & {
@@ -14,7 +15,7 @@ export const MediaContentBlock: React.FC<
   const isImageLeft = layout === 'imageLeft'
 
   return (
-    <section className="py-16 md:py-24 container mx-auto px-4" id={`block-${props.id}`}>
+    <BlockContainer className={"reverse-gradient-bg"} styles={{isFullWidth : true}}>
       {/* Title Centered Top */}
       {title && (
         <div className="mb-12 text-center w-full">
@@ -28,7 +29,7 @@ export const MediaContentBlock: React.FC<
         className={`flex flex-col gap-12 items-center ${isImageLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
       >
         {/* Image Side */}
-        <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
+        <div className="w-full md:w-1/2 relative h-75 md:h-125">
           {image && typeof image === 'object' && (
             <Media resource={image} fill imgClassName="object-cover rounded-2xl shadow-xl" />
           )}
@@ -49,6 +50,6 @@ export const MediaContentBlock: React.FC<
           )}
         </div>
       </div>
-    </section>
+    </BlockContainer>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import type { PricingTableBlock as PricingTableProps } from '@/payload-types'
+import BlockContainer from '@/components/BlockContainer'
 
 const CheckIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -13,7 +14,7 @@ export const PricingTableBlock: React.FC<
   const { title, subtitle, plans, optionsTitle, extraOptions } = props
 
   return (
-    <section className="py-24 bg-[#0B1221]" id={`block-${props.id}`}>
+    <BlockContainer>
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-wide mb-6">
@@ -33,11 +34,11 @@ export const PricingTableBlock: React.FC<
               const isMiddle = plans.length === 3 && idx === 1
 
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className={`relative flex flex-col bg-[#161c33] rounded-[2rem] p-8 md:p-10 transition-transform duration-300 shadow-xl ${
-                    isMiddle 
-                      ? 'border-2 border-[#00e5ff] scale-100 lg:scale-105 shadow-[0_0_30px_rgba(0,229,255,0.15)] z-10' 
+                    isMiddle
+                      ? 'border-2 border-[#00e5ff] scale-100 lg:scale-105 shadow-[0_0_30px_rgba(0,229,255,0.15)] z-10'
                       : 'border border-transparent hover:border-[#00e5ff] scale-100 z-0'
                   }`}
                 >
@@ -50,7 +51,7 @@ export const PricingTableBlock: React.FC<
                   <h3 className="text-[#00e5ff] text-xl font-bold uppercase tracking-wider mb-4">
                     {plan.planName}
                   </h3>
-                  
+
                   <div className="text-4xl md:text-5xl font-extrabold text-white mb-8">
                     {plan.price}
                   </div>
@@ -65,7 +66,7 @@ export const PricingTableBlock: React.FC<
                       ))}
                     </ul>
                   )}
-                  
+
                 </div>
               )
             })}
@@ -95,6 +96,6 @@ export const PricingTableBlock: React.FC<
           </div>
         )}
       </div>
-    </section>
+    </BlockContainer>
   )
 }

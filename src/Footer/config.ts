@@ -10,6 +10,58 @@ export const Footer: GlobalConfig = {
   },
   fields: [
     {
+      type: 'row',
+      fields: [
+        {
+          name: 'titleSubtitle',
+          type: 'text',
+          defaultValue: 'Démarrons',
+          admin: { width: '33%' }
+        },
+        {
+          name: 'titleHighlight',
+          type: 'text',
+          defaultValue: 'Votre Projet',
+          admin: { width: '33%' }
+        },
+        {
+          name: 'titleEnd',
+          type: 'text',
+          defaultValue: 'ensemble',
+          admin: { width: '33%' }
+        },
+      ]
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'phone',
+          type: 'text',
+          defaultValue: '07 85 76 30 86',
+          admin: { width: '33%' }
+        },
+        {
+          name: 'email',
+          type: 'text',
+          defaultValue: 'medji@click-one.fr',
+          admin: { width: '33%' }
+        },
+        {
+          name: 'website',
+          type: 'text',
+          defaultValue: 'click-one.fr',
+          admin: { width: '33%' }
+        },
+      ]
+    },
+    link({
+      overrides: {
+        name: 'cta',
+        label: 'Call to Action Button',
+      }
+    }),
+    {
       name: 'navItems',
       type: 'array',
       fields: [

@@ -2,6 +2,7 @@ import React from 'react'
 import type { FeatureGridBlock as FeatureGridProps } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import RichText from '@/components/RichText'
+import BlockContainer from '@/components/BlockContainer'
 
 export const FeatureGridBlock: React.FC<
   FeatureGridProps & { id?: string }
@@ -9,7 +10,7 @@ export const FeatureGridBlock: React.FC<
   const { title, subtitle, cards, cta } = props
 
   return (
-    <section className="py-20 md:py-28 bg-[#111827]" id={`block-${props.id}`}>
+    <BlockContainer>
       <div className="container mx-auto px-6 md:px-8 max-w-7xl">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-6">
@@ -50,6 +51,6 @@ export const FeatureGridBlock: React.FC<
           </div>
         )}
       </div>
-    </section>
+    </BlockContainer>
   )
 }

@@ -1,6 +1,7 @@
 import type { Block } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { link } from '@/fields/link'
+import { styles } from '@/fields/styles'
 
 export const MediaContent: Block = {
   slug: 'mediaContent',
@@ -36,5 +37,6 @@ export const MediaContent: Block = {
       required: true,
     },
     link(),
+    styles(),
   ],
 }

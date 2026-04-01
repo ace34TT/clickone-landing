@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import { link } from '@/fields/link'
+import { styles } from '@/fields/styles'
 
 export const PortfolioShowcase: Block = {
   slug: 'portfolioShowcase',
@@ -39,5 +40,6 @@ export const PortfolioShowcase: Block = {
         }),
       ],
     },
+    styles(),
   ],
 }
