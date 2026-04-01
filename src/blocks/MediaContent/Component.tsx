@@ -15,39 +15,45 @@ export const MediaContentBlock: React.FC<
   const isImageLeft = layout === 'imageLeft'
 
   return (
-    <BlockContainer id={"a-propos"} className={"reverse-gradient-bg"} styles={{isFullWidth : true}}>
-      {/* Title Centered Top */}
-      {title && (
-        <div className="mb-12 text-center w-full">
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
-            {title}
-          </h2>
-        </div>
-      )}
+    <BlockContainer
+      id={'a-propos'}
+      className={'reverse-gradient-bg'}
+      styles={{ isFullWidth: true }}
+    >
+      <div className="container relative z-10 mx-auto px-4 md:px-8 max-w-6xl">
+        {/* Title Centered Top */}
+        {title && (
+          <div className="mb-12 text-center w-full">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              {title}
+            </h2>
+          </div>
+        )}
 
-      <div
-        className={`flex flex-col gap-12 items-center ${isImageLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-      >
-        {/* Image Side */}
-        <div className="w-full md:w-1/2 relative h-75 md:h-125">
-          {image && typeof image === 'object' && (
-            <Media resource={image} fill imgClassName="object-cover rounded-2xl" />
-          )}
-        </div>
+        <div
+          className={`flex flex-col-reverse gap-12 items-center ${isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+        >
+          {/* Image Side */}
+          <div className="w-full lg:w-1/2 relative h-80 md:h-100 lg:h-125 min-h-[320px]">
+            {image && typeof image === 'object' && (
+              <Media resource={image} fill imgClassName="object-cover rounded-2xl" />
+            )}
+          </div>
 
-        {/* Content Side */}
-        <div className="w-full md:w-1/2 flex flex-col items-start gap-6">
-          {content && (
-            <div className="prose prose-slate dark:prose-invert">
-              <RichText data={content} enableGutter={false} />
-            </div>
-          )}
+          {/* Content Side */}
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
+            {content && (
+              <div className="prose prose-slate dark:prose-invert max-w-none">
+                <RichText data={content} enableGutter={false} />
+              </div>
+            )}
 
-          {link && (
-            <div className="mt-4">
-              <CMSLink {...link} />
-            </div>
-          )}
+            {link && (
+              <div className="mt-4">
+                <CMSLink {...link} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </BlockContainer>
