@@ -1,5 +1,5 @@
 import React from 'react'
-import type { DetailedGridBlock as DetailedGridProps } from '@/payload-types'
+import { DetailedGrid as DetailedGridProps } from '@/payload-types'
 import { Media } from '@/components/Media'
 import BlockContainer from '@/components/BlockContainer'
 

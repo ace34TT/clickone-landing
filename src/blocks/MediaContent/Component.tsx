@@ -1,5 +1,5 @@
 import React from 'react'
-import type { MediaContentBlock as MediaContentBlockProps } from '@/payload-types'
+import {  MediaContent as MediaContentBlockProps } from '@/payload-types'
 import { Media } from '@/components/Media'
 import RichText from '@/components/RichText'
 import { CMSLink } from '@/components/Link'

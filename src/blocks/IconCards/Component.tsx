@@ -1,5 +1,5 @@
 import React from 'react'
-import type { IconCardsBlock as IconCardsBlockProps } from '@/payload-types'
+import type { IconCards as IconCardsBlockProps } from '@/payload-types'
 import { Media } from '@/components/Media'
 import BlockContainer from '@/components/BlockContainer'
 import { MobileSwiper } from '@/components/MobileSwiper'

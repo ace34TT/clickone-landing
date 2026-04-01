@@ -1,5 +1,5 @@
 import React from 'react'
-import type { StepsBlock as StepsBlockProps } from '@/payload-types'
+import type { Steps as StepsBlockProps } from '@/payload-types'
 import { Media } from '@/components/Media'
 import BlockContainer from '@/components/BlockContainer'
 

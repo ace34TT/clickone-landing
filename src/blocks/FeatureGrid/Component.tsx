@@ -1,5 +1,5 @@
 import React from 'react'
-import type { FeatureGridBlock as FeatureGridProps } from '@/payload-types'
+import { FeatureGrid as FeatureGridProps } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import RichText from '@/components/RichText'
 import BlockContainer from '@/components/BlockContainer'
@@ -8,7 +8,7 @@ import { MobileSwiper } from '@/components/MobileSwiper'
 export const FeatureGridBlock: React.FC<
   FeatureGridProps & { id?: string }
 > = (props) => {
-  const { title, subtitle, cards, cta } = props
+  const { title, subtitle, cards, link } = props
 
   return (
     <BlockContainer>
@@ -31,11 +31,11 @@ export const FeatureGridBlock: React.FC<
                 {card.cardTitle}
               </h3>
               {card.description && (
-                <div className="prose prose-sm md:prose-base prose-slate dark:prose-invert text-slate-300 w-full mb-6 max-w-none flex-grow">
+                <div className="prose prose-sm md:prose-base prose-slate dark:prose-invert text-slate-300 w-full mb-6 max-w-none grow">
                   <RichText data={card.description} enableGutter={false} />
                 </div>
               )}
-              <div className="w-[45%] border-b-[2px] border-[#00e5ff] ml-auto mt-auto pt-2"></div>
+              <div className="w-[45%] border-b-2 border-[#00e5ff] ml-auto mt-auto pt-2"></div>
             </div>
           ))
           return (
@@ -48,12 +48,12 @@ export const FeatureGridBlock: React.FC<
           )
         })()}
 
-        {cta && cta.label && cta.url && (
+        {link && link.label && link.url && (
           <div className="mt-24 text-center flex justify-center">
             <CMSLink
-              {...cta}
+              {...link}
               appearance={undefined}
-              className="inline-block border border-white rounded-[2rem] px-8 py-3 text-white text-lg font-light transition-all hover:bg-white hover:text-slate-900"
+              className="inline-block border border-white rounded-4xl px-8 py-3 text-white text-lg font-light transition-all hover:bg-white hover:text-slate-900"
             />
           </div>
         )}

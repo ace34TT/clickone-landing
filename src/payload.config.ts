@@ -14,6 +14,13 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { MediaContent } from '@/blocks/MediaContent/config'
+import { DetailedGrid } from '@/blocks/DetailedGrid/config'
+import { FeatureGrid } from '@/blocks/FeatureGrid/config'
+import { IconCards } from '@/blocks/IconCards/config'
+import { PortfolioShowcase } from '@/blocks/PortfolioShowcase/config'
+import { PricingTable } from '@/blocks/PricingTable/config'
+import { Steps } from '@/blocks/Steps/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -63,6 +70,7 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
+  blocks : [MediaContent , DetailedGrid , FeatureGrid , IconCards , PortfolioShowcase , PricingTable , Steps],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins,

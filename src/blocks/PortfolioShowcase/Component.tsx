@@ -1,5 +1,5 @@
 import React from 'react'
-import type { PortfolioShowcaseBlock as PortfolioShowcaseProps } from '@/payload-types'
+import type { PortfolioShowcase as PortfolioShowcaseProps } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 import BlockContainer from '@/components/BlockContainer'

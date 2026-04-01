@@ -1,5 +1,5 @@
 import React from 'react'
-import type { PricingTableBlock as PricingTableProps } from '@/payload-types'
+import type { PricingTable as PricingTableProps } from '@/payload-types'
 import BlockContainer from '@/components/BlockContainer'
 import { Media } from '@/components/Media'
 import { MobileSwiper } from '@/components/MobileSwiper'
