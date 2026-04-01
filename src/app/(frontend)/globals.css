@@ -224,33 +224,12 @@ html[data-theme='light'] {
 }
 
 .gradient-bg {
-  @apply bg-linear-to-br from-[#1A1B44] to-[#0F2457]
+  @apply bg-linear-to-br from-[#1A1B44] to-[#0F2457];
 }
 
 .vertical-gradient-bg {
-  @apply bg-linear-to-t from-[#1A1B44] to-[#0F2457]
+  @apply bg-linear-to-t from-[#1A1B44] to-[#0F2457];
 }
 .reverse-gradient-bg {
-  @apply bg-linear-to-br from-[#0F2457] to-[#1A1B44]
-}
-
-/* Lenis Smooth Scroll Recommended CSS */
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
+  @apply bg-linear-to-br from-[#0F2457] to-[#1A1B44];
 }
