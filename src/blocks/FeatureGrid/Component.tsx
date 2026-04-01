@@ -3,6 +3,7 @@ import type { FeatureGridBlock as FeatureGridProps } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import RichText from '@/components/RichText'
 import BlockContainer from '@/components/BlockContainer'
+import { MobileSwiper } from '@/components/MobileSwiper'
 
 export const FeatureGridBlock: React.FC<
   FeatureGridProps & { id?: string }
@@ -23,23 +24,29 @@ export const FeatureGridBlock: React.FC<
           )}
         </div>
 
-        {cards && cards.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20">
-            {cards.map((card: any, idx: number) => (
-              <div key={idx} className="flex flex-col items-start text-left w-full">
-                <h3 className="text-3xl font-light text-[#00e5ff] tracking-wide mb-5">
-                  {card.cardTitle}
-                </h3>
-                {card.description && (
-                  <div className="prose prose-sm md:prose-base prose-slate dark:prose-invert text-slate-300 w-full mb-6 max-w-none">
-                    <RichText data={card.description} enableGutter={false} />
-                  </div>
-                )}
-                <div className="w-[45%] border-b-[2px] border-[#00e5ff] ml-auto mt-auto pt-2"></div>
+        {cards && cards.length > 0 && (() => {
+          const cardElements = cards.map((card: any, idx: number) => (
+            <div key={idx} className="flex flex-col items-start text-left w-full h-full">
+              <h3 className="text-2xl lg:text-3xl font-light text-[#00e5ff] tracking-wide mb-4 lg:mb-5">
+                {card.cardTitle}
+              </h3>
+              {card.description && (
+                <div className="prose prose-sm md:prose-base prose-slate dark:prose-invert text-slate-300 w-full mb-6 max-w-none flex-grow">
+                  <RichText data={card.description} enableGutter={false} />
+                </div>
+              )}
+              <div className="w-[45%] border-b-[2px] border-[#00e5ff] ml-auto mt-auto pt-2"></div>
+            </div>
+          ))
+          return (
+            <>
+              <MobileSwiper>{cardElements}</MobileSwiper>
+              <div className="hidden lg:grid grid-cols-2 gap-x-16 gap-y-20">
+                {cardElements}
               </div>
-            ))}
-          </div>
-        )}
+            </>
+          )
+        })()}
 
         {cta && cta.label && cta.url && (
           <div className="mt-24 text-center flex justify-center">

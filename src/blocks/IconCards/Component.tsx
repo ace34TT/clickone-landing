@@ -2,6 +2,7 @@ import React from 'react'
 import type { IconCardsBlock as IconCardsBlockProps } from '@/payload-types'
 import { Media } from '@/components/Media'
 import BlockContainer from '@/components/BlockContainer'
+import { MobileSwiper } from '@/components/MobileSwiper'
 
 export const IconCardsBlock: React.FC<
   IconCardsBlockProps & { id?: string }
@@ -26,30 +27,36 @@ export const IconCardsBlock: React.FC<
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-wide">{title}</h2>
         </div>
 
-        {cards && cards.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {cards.map((card: any, idx: number) => (
-              <div
-                key={idx}
-                className="group flex flex-col items-center text-center p-10 lg:p-14 bg-[#1A1B44] rounded-[2rem] border-2 border-transparent hover:border-[#00e5ff] transition-all duration-300 shadow-2xl"
-              >
-                <div className="w-24 h-24 mb-6 relative flex items-center justify-center">
-                  {card.icon && typeof card.icon === 'object' && (
-                    <Media
-                      resource={card.icon}
-                      fill
-                      imgClassName="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]"
-                    />
-                  )}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{card.cardTitle}</h3>
-                <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                  {card.description}
-                </p>
+        {cards && cards.length > 0 && (() => {
+          const cardElements = cards.map((card: any, idx: number) => (
+            <div
+              key={idx}
+              className="group w-full h-full flex flex-col items-center text-center p-8 lg:p-14 bg-[#1A1B44] rounded-[2rem] border-2 border-transparent hover:border-[#00e5ff] transition-all duration-300 shadow-2xl"
+            >
+              <div className="w-20 lg:w-24 h-20 lg:h-24 mb-6 relative flex items-center justify-center shrink-0">
+                {card.icon && typeof card.icon === 'object' && (
+                  <Media
+                    resource={card.icon}
+                    fill
+                    imgClassName="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]"
+                  />
+                )}
               </div>
-            ))}
-          </div>
-        )}
+              <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 lg:mb-4 shrink-0">{card.cardTitle}</h3>
+              <p className="text-slate-300 text-sm lg:text-base leading-relaxed flex-grow">
+                {card.description}
+              </p>
+            </div>
+          ))
+          return (
+            <>
+              <MobileSwiper>{cardElements}</MobileSwiper>
+              <div className="hidden lg:grid grid-cols-3 gap-8">
+                {cardElements}
+              </div>
+            </>
+          )
+        })()}
       </div>
     </BlockContainer>
   )
