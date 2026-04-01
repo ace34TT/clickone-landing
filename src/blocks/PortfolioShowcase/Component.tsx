@@ -13,7 +13,7 @@ export const PortfolioShowcaseBlock: React.FC<
     <BlockContainer>
 
       {/* Decorative Dotted Pattern (Left Edge) */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-[30rem] h-[30rem] opacity-30 pointer-events-none">
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-120 h-120 opacity-30 pointer-events-none">
         <div
           style={{ backgroundImage: 'radial-gradient(#00e5ff 4px, transparent 4px)', backgroundSize: '32px 32px' }}
           className="w-full h-full transform rotate-45"
@@ -50,15 +50,15 @@ export const PortfolioShowcaseBlock: React.FC<
               return (
                 <div
                   key={idx}
-                  className={`relative group bg-[#161c33] rounded-[2rem] border-2 shadow-xl overflow-hidden flex flex-col items-center justify-center p-6 md:p-10 lg:p-12 transition-all duration-300 min-h-[300px] lg:min-h-0 ${itemClasses} ${hoverStateClass}`}
+                  className={`relative group bg-[#161c33] rounded-4xl border-2 shadow-xl overflow-hidden flex flex-col items-center justify-center transition-all duration-300 min-h-75 lg:min-h-0 ${itemClasses} ${hoverStateClass}`}
                 >
                   {/* Media Frame wrapper resolving NextJS auto-sizing layout restraints within grid cells */}
-                  <div className="w-full h-full relative flex items-center justify-center min-h-[250px] md:min-h-[350px]">
+                  <div className="w-full h-full relative flex items-center justify-center min-h-62.5 md:min-h-87.5">
                     {project.image && typeof project.image === 'object' && (
                       <Media
                         resource={project.image}
                         fill
-                        imgClassName={`object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl`}
+                        imgClassName={`object-cover transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl`}
                       />
                     )}
                   </div>
