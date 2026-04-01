@@ -34,9 +34,9 @@ export const MediaContentBlock: React.FC<
           className={`flex flex-col-reverse gap-12 items-center ${isImageLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
         >
           {/* Image Side */}
-          <div className="w-full lg:w-1/2 relative h-80 md:h-100 lg:h-125 min-h-[320px]">
+          <div className="w-full lg:w-1/2 relative h-80 md:h-100 lg:h-125 min-h-80">
             {image && typeof image === 'object' && (
-              <Media resource={image} fill imgClassName="object-cover rounded-2xl" />
+              <Media resource={image} fill imgClassName="object-contain rounded-2xl" />
             )}
           </div>
 

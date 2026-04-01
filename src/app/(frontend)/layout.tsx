@@ -70,9 +70,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     creator: 'Click One',
   },
-  alternates: {
-    canonical: '/',
-  },
+  
   robots: {
     index: true,
     follow: true,
