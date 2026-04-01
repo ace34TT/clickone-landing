@@ -31,7 +31,7 @@ export const MediaContentBlock: React.FC<
         {/* Image Side */}
         <div className="w-full md:w-1/2 relative h-75 md:h-125">
           {image && typeof image === 'object' && (
-            <Media resource={image} fill imgClassName="object-cover rounded-2xl shadow-xl" />
+            <Media resource={image} fill imgClassName="object-cover rounded-2xl" />
           )}
         </div>
 
