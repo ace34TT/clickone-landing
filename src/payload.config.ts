@@ -66,11 +66,23 @@ export default buildConfig({
   editor: defaultLexical,
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URL || '',
+      url: process.env.TURSO_DATABASE_URL || 'file:./local.db',
+      authToken: process.env.TURSO_AUTH_TOKEN,
     },
+    // client: {
+    //   url: process.env.DATABASE_URL || '',
+    // },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
-  blocks : [MediaContent , DetailedGrid , FeatureGrid , IconCards , PortfolioShowcase , PricingTable , Steps],
+  blocks: [
+    MediaContent,
+    DetailedGrid,
+    FeatureGrid,
+    IconCards,
+    PortfolioShowcase,
+    PricingTable,
+    Steps,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins,
